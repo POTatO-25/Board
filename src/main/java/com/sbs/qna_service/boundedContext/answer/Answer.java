@@ -21,7 +21,7 @@ public class Answer {
     private LocalDateTime createDate;
 
     @ManyToOne
-    private Question question;
+    private Question question; // question_id 생성
 
     public Answer() {
 
