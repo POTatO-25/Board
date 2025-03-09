@@ -4,11 +4,13 @@ import com.sbs.qna_service.boundedContext.answer.Answer;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
 import java.util.List;
 
 @AllArgsConstructor
+@NoArgsConstructor
 @Data
 @Entity // 스프링 부트가 Question을 Entity로 봄
 public class Question {
@@ -29,8 +31,4 @@ public class Question {
     // CascadeType.REMOVE : 질문이 삭제되면 답변도 같이 삭제
     @OneToMany(mappedBy = "question", cascade = CascadeType.REMOVE)
     private List<Answer> answerList;
-
-    public Question() {
-
-    }
 }
