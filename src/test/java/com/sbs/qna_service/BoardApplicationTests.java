@@ -107,4 +107,19 @@ class BoardApplicationTests {
 		q.setSubject("수정된 제목");
 		questionRepository.save(q);
 	}
+
+	/*
+	 * DELETE FROM question WHERE id = ?;
+	 *  */
+	@Test
+	@DisplayName("데이터 삭제하기")
+	void testCase008() {
+		// count() : SELECT COUNT(*) FROM question;
+		assertEquals(2, questionRepository.count());
+		Optional<Question> oq = questionRepository.findById(1);
+		assertTrue(oq.isPresent());
+		Question q = oq.get();
+		questionRepository.delete(q);
+		assertEquals(1, questionRepository.count());
+	}
 }
