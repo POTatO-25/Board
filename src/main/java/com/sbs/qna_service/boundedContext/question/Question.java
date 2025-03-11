@@ -7,6 +7,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 @AllArgsConstructor
@@ -30,5 +31,5 @@ public class Question {
     // DB는 리스트나 배열을 만들 수 없기 때문
     // CascadeType.REMOVE : 질문이 삭제되면 답변도 같이 삭제
     @OneToMany(mappedBy = "question", cascade = CascadeType.REMOVE)
-    private List<Answer> answerList;
+    private List<Answer> answerList = new ArrayList<>();
 }
